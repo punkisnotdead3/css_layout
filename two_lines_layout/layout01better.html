@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- 
+
+  div 默认 块级元素 ，默认是垂直排列 需要设置以后才能水平排列
+  且div 默认情况下 宽度是父元素的宽度 高度是0
+
+  一旦设置了float 以后，那 他所属的元素的 宽度就不是父亲元素的宽度了，而是整个float 元素的 子元素的宽度
+
+
+  这里要注意：
+
+   当left和right-fix 都是float 以后 就不再遵循div的排序了，因为div默认排序是垂直排列
+   当全是float 以后，那么就变成了 水平排列。 而 因为right-fix的宽度是百分之100 排列不下了
+   所以要另外启动一行
+
+   解决了第一个方案 3个问题中的2个
+
+   总体上这个方案 还是比较复杂的
+   
+
+
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>两列布局的第1种解决方案的改进版</title>
+
+
+    <style>
+        #left,
+        #right,
+        #right2,
+        #right-fix,
+        #right-fix2 {
+            height: 300px;
+        }
+
+        #left {
+            width: 300px;
+            background: red;
+            /* 当前元素 脱离文档流 */
+            float: left;
+            position: relative;
+        }
+
+        #right {
+            background: seagreen;
+
+        }
+
+        #right-fix {
+            /* 自适应  此时 他和left  都是浮动的 就可以解决 兄弟节点 一个浮动 一个不浮动带来的问题 
+             因为这里设置了float 浮动，所以就导致他所属的div 宽度为0
+
+            
+            */
+
+            float: right;
+            background: violet;
+            /* 所以这里来设置一下这个宽度  就代表他的宽度 为父元素的宽度 */
+            width: 100%;
+            margin-left: -300px;
+        }
+
+        #inner {
+            height: 200px;
+            background: yellow;
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div id="left"> 两列布局
+    </div>
+    <!-- 为自适应元素定位父级元素 -->
+    <div id="right-fix">
+        <!-- 被挤到第二行了 因为我自己是百分之百 前面还有一个left 元素呢 -->
+        <div id="right">
+            <div  id="inner"></div>
+
+        </div>
+
+    </div>
+
+
+
+</body>
+
+
+
+
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- 
+
+优点：  浏览器兼容最好
+缺点：  因为属性都是 table相关值， 所以受到相关制约
+ 
+
+
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>两列布局的第3种解决方案</title>
+
+
+    <style>
+        #left,
+        #right,
+        #right2 {
+            height: 300px;
+        }
+
+        #left {
+            width: 300px;
+            background: red;
+            display: table-cell
+        }
+
+        #right {
+            background: seagreen;
+            display: table-cell;
+
+        }
+
+        #parent{
+            /* 表格的单元格的宽度会自动分配  50和50等分
+            
+                一定left 固定了宽度 
+                那么剩下的right 就会填满 剩余的宽度
+             */
+            display: table;
+            /* 这个必须要加 不然宽度 只有left的宽度 */
+            width: 100%;
+            /* 处理 td 双边框的问题
+             每个td 都有边框 
+             2个td 在一起就会有2个边框了，所以需要这属性 才处理˝
+            
+             */
+            table-layout: fixed;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="parent">
+        <div id="left"> </div>
+        <div id="right"></div>
+    </div>
+
+
+
+
+</body>
+
+
+
+
+
+</html>

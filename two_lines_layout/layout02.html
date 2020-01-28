@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- 
+
+ 优点： 和 第一个方案相比 只是margin 变成了 overflow   代码非常简单   而且第一种解决方案的  2个问题 他都没有
+
+ 缺点： bfc模式开启以后   会有一些负作用。 设置了内容溢出的情况  且依然存在着 clear both的情况
+ 
+
+
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>两列布局的第2种解决方案</title>
+
+
+    <style>
+
+        #left,#right,#right2{
+            height: 300px;
+        }
+
+        #left {
+            width: 300px;
+            background: red;
+            float: left;
+        }
+        #right{
+            background: seagreen;
+            /* 不加这个 left 就会覆盖一部分的right哦
+
+                另外还有开启BFC模式的 作用： 当前元素的内部环境与外界完全隔离
+                还有其他东西可以开启bfc模式
+            
+            
+             */
+            overflow: hidden;
+        }
+        
+       
+    </style>
+</head>
+
+<body>
+    <div id="left"> </div>
+    <div id="right"></div>
+
+   
+</body>
+
+
+
+
+
+</html>

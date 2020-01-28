@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- 
+
+  div 默认 块级元素 ，默认是垂直排列 需要设置以后才能水平排列
+  且div 默认情况下 宽度是父元素的宽度 高度是0
+
+  优点： 实现方式简单
+  缺点1： 自适应的元素 margin的属性值 与 定宽元素的 width 属性值保持一致
+  缺点2： 定宽元素 因为设置了float 所以是脱离文档流的。 这与自适应元素 不浮动 会导致一些浏览器的兼容问题
+
+  总体上来说 这种解决方案 最简单 但是问题也比较多。有一些限制
+
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>两列布局的第1种解决方案</title>
+
+
+    <style>
+
+        #left,#right,#right2{
+            height: 300px;
+        }
+
+        #left {
+            width: 300px;
+            background: red;
+            /* 当前元素 脱离文档流 */
+            float: left;
+          
+        }
+        #right{
+            background: seagreen;
+        }
+        
+        #right2{
+            background: seagreen;
+            /* 右边的离左边 300px 可以保证left不被覆盖。 */
+            margin-left: 300px;
+        }
+
+        #inner{
+            height: 300px;
+            background: tomato;
+            /* 清除浮动 */
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="left"> 这种情况视觉上 好像是两列布局 但其实是 右布局 充满 然后左布局 覆盖在右布局上面</div>
+    <div id="right"></div>
+
+    <br>
+    <br>
+    <br>
+
+    <div id="left"> 两列布局</div>
+    <div id="right2"></div>
+
+    
+    <br>
+    <br>
+    <br>
+
+    <div id="left"> 两列布局： 这种解决方案 如果在子元素的 中 使用了clear:both的  属性  就会导致展示异常了
+    </div>
+    <div id="right2">
+            <div id="inner"></div>
+
+    </div>
+
+
+</body>
+
+
+
+
+
+</html>
