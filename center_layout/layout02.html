@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- 
+
+  优缺点就不说了 因为都是组合的  前面水平和垂直布局的方案 
+
+  总体来说 我感觉 第二个解决方案 比 第一个解决方案 要好。
+
+  
+
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>水平和垂直都居中布局的第2种解决方案</title>
+
+
+    <style>
+        #parent {
+            width: 1000px;
+            height: 600px;
+            background: green;
+            /* 只有相对定位是不脱离文档流的 */
+            position: relative;
+        }
+
+        #child {
+            width: 200px;
+            height: 200px;
+            background: red;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 父级元素 -->
+    <div id="parent">
+        <!-- 子级元素 -->
+        <div id="child">都居中</div>
+
+    </div>
+
+    <br>
+    <br>
+
+
+
+
+
+</body>
+
+
+
+
+
+</html>

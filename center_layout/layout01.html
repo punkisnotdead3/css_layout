@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- 
+
+  
+
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>水平和垂直都居中布局的第1种解决方案</title>
+
+
+    <style>
+        #parent {
+            width: 1000px;
+            height: 600px;
+            background: green;
+            /* 垂直居中 */
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        #child {
+            width: 200px;
+            height: 200px;
+            background: red;
+            /* 水平居中 */
+            /* display: block; */
+            /* 可以省略 因为div 默认就是block */
+            margin: 0 auto;
+
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 父级元素 -->
+    <div id="parent">
+        <!-- 子级元素 -->
+        <div id="child">都居中</div>
+
+    </div>
+
+    <br>
+    <br>
+
+
+
+
+
+</body>
+
+
+
+
+
+</html>
