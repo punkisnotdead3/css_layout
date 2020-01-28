@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<!-- 
+第二种方案的优点：
+只需要对子级元素进行设置就可以实现水平方向居中布局效果   写起来比第一种简单一些。
+
+缺点：
+ 如果子级元素脱离文档流，会导致margin的属性 无效。
+
+ 浮动，绝对定位，将当前元素设置为固定定位  这三种css 方法 都会导致 脱离文档流
+
+ margin 属性失效了，自然 水平居中就失效了
+
+文档流中：内联元素默认从左到右流，遇到阻碍或者宽度不够自动换行，继续按照从左到右的方式布局。块级元素单独占据一行，并按照从上到下的方式布局。
+文档一旦脱离文档流，在算其父元素的高度时，就不包括其自身了。
+
+-->
+  
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>水平居中布局的第2种解决方案</title>
+
+
+    <style>
+        #parent {
+            width: 100%;
+            height: 200px;
+            background: green;
+        }
+
+        #child {
+            width: 200px;
+            height: 200px;
+            background: red;
+            display: table;
+            /*
+             margin:  外边距 ， 最多可以设置4个值 。
+             1个值： 上右下左 都是一样的
+             2个值   上下 ， 左右
+             3个值：  上外边距  左右边距  下边距
+             4个值  就是上右下左了
+
+             auto：表示根据浏览器自动分配。  浏览器是等分的   
+
+            
+            **/
+            margin: 0 auto;
+        }
+
+
+        #child2 {
+            width: 200px;
+            height: 200px;
+            background: red;
+            /* div默认的display的属性就是block */
+            display: block;
+            margin: 0 auto;
+        }
+
+
+        #child3 {
+            width: 200px;
+            height: 200px;
+            background: red;
+            display: inline;
+            margin: 0 auto;
+        }
+
+        #child4 {
+            width: 200px;
+            height: 200px;
+            background: red;
+            display: block;
+            margin: 0 auto;
+            /* 绝对定位 */
+            position: absolute;
+        }
+      
+    </style>
+</head>
+
+<body>
+    <!-- 父级元素 -->
+    <div id="parent">
+        <!-- 子级元素 -->
+        <div id="child">水平居中 table</div>
+
+    </div>
+
+    <br>
+    <br>
+    <div id="parent">
+        <!-- 子级元素 -->
+        <div id="child2">水平居中  block 也是可以的， 所以这种方案  table+block 都是可以的 </div>
+
+    </div>
+
+    <br>
+    <br>
+    <div id="parent">
+        <!-- 子级元素  -->
+        <div id="child3">水平居中 inline   可以看出来 inline 是无效的。</div>
+
+    </div>
+
+    <br>
+    <br>
+    <div id="parent">
+        <!-- 子级元素 -->
+        <div id="child4">水平居中</div>
+
+    </div>
+
+   
+
+</body>
+
+
+
+
+
+</html>

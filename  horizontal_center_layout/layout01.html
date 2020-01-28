@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en"> 
+
+
+    <!-- text-align: center;  display: inline-block; 这个组合拳 实现水平居中 比较容易简单 
+     有点： 兼容性 比较好
+    
+     缺点： text-align 具有继承性  导致子级元素的文本也是居中展示的 解决方案可以看一下child3 的写法
+    
+    -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>水平居中布局的第一种解决方案</title>
+
+
+    <style>
+        #parent {
+            width: 100%;
+            height: 200px;
+            background: green;
+            /* text-align 一开始是为 文本内容设置的对齐方式
+               left 左对齐 center 居中对齐  right 右对齐
+            
+            
+            
+                         */
+            text-align: center;
+        }
+
+        #child {
+            width: 200px;
+            height: 200px;
+            background: red;
+            /* display 属性
+              block 块级元素 inline  内联元素  inline-block: 行内块级元素（就是把 block和inline 给组合起来）
+
+              text-align 是为文本内容设置的对齐方式   但是  如果 子元素 设置成inline 那么text-align 就可以对这个 非文本内容的子元素生效了  
+
+              这里有人就要问了，既然如此 我们设置成inline 不就行了？为啥还要设置成inline-block，因为这里inline 属性有个大坑
+              这大坑就是： 如果设置成inlie 那么该元素的 width和height属性的 设置 就无效了。  
+
+              block 特点： 1.width和height 是有效的
+              inline 特点：2. widht和height 是无效的  3.可以让父布局的text-align 生效
+
+              inline-block： 1和3 2个特点 加起来。
+
+            
+             */
+            display: inline-block;
+        }
+
+        /* 看下效果 就知道 这里 child2 的width和height 就都是无效的了，虽然依旧是水平居中的效果 */
+        #child2{
+            width: 200px;
+            height: 200px;
+            background: red;
+            display: inline;
+        }
+
+          /* */
+          #child3{
+            width: 200px;
+            height: 200px;
+            background: red;
+            display: inline-block;
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 父级元素 -->
+    <div id="parent">
+        <!-- 子级元素 -->
+        <div id="child">水平居中</div>
+
+    </div>
+
+    <br>
+    <hr>
+    <br>
+
+    <div id="parent">
+        <!-- 子级元素 -->
+        <div id="child2">水平居中</div>
+
+    </div>
+
+
+    <br>
+    <hr>
+    <br>
+
+    <div id="parent">
+        <!-- 子级元素 -->
+        <div id="child3">水平居中 这里的文本 就可以随意指定了</div>
+
+    </div>
+
+</body>
+
+
+
+
+
+</html>

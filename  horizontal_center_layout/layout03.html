@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- 
+相对于前面两种方案 比较复杂
+
+优点： 不管父级是否脱离文档流，都不会影响子级元素的水平居中效果
+
+缺点：
+ transform 的属性 是css3 的新增属性，浏览器的支持情况 可能不是太好。
+
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>水平居中布局的第3种解决方案</title>
+
+
+    <style>
+        #parent {
+            width: 100%;
+            height: 200px;
+            background: green;
+            /* 开启定位 
+            absolute 绝对  fixed 固定 relative 相对 
+            这3个值 都是开启定位 
+            只有默认的static 是不开启定位
+
+
+            
+            */
+            position: relative;
+        }
+
+        #child {
+            width: 200px;
+            height: 200px;
+            background: red;
+            /**
+            如果父元素 没有开启position的话 那么当前元素是相对于页面定位的。
+            如果父元素 开启了定位 当前元素是相对于父元素定位                  
+            */
+            position: absolute;
+
+            left: 50%;
+
+        }
+
+        #child2 {
+            width: 200px;
+            height: 200px;
+            background: red;
+            position: absolute;
+            left: 50%;
+            /* 因为left是标定的 左边框在 居中的位置，所以要让整个div 都居中，显然就得让整个div 往左边移动一段距离
+            那么这个距离 移动多少呢？当然是移动这个div的宽度的一半 也就是100px */
+            transform: translateX(-100px);
+
+        }
+
+        #child3 {
+            width: 400px;
+            height: 200px;
+            background: red;
+            position: absolute;
+            left: 50%;
+            /* 这里就不用写具体的像素了，更加灵活，否则每次width改变了 这里也要改 那么就比较麻烦了 */
+            transform: translateX(-50%);
+
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 父级元素 -->
+    <div id="parent">
+        <!-- 子级元素 -->
+        <div id="child">水平居中 注意看 其实这里并没有完全实现水平居中，而是整个child的 div 的左边框 在水平居中了。 并不是整个child的div 水平居中</div>
+
+    </div>
+
+    <br>
+    <br>
+
+    <div id="parent">
+        <!-- 子级元素 -->
+        <div id="child2">水平居中 </div>
+
+    </div>
+
+    <br>
+    <br>
+
+    <div id="parent">
+        <!-- 子级元素 -->
+        <div id="child3">水平居中 </div>
+
+    </div>
+
+
+</body>
+
+
+
+
+
+</html>
