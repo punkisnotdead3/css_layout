@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- 
+
+使用float + margin-left 的解决方案
+
+只要 自适应的布局 永远在右边， 定宽的 都在左边，那么 不管是几列布局 都可以用这种方法来实现。
+
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>三列布局的第一种解决方案</title>
+
+
+    <style>
+        #left,
+        #center,
+        #right {
+            height: 300px;
+        }
+
+        #center {
+            width: 100px;
+            background: rebeccapurple;
+            float: left;
+        }
+
+        #left {
+            width: 300px;
+            background: red;
+            float: left;
+        }
+
+        #right {
+            background: seagreen;
+            margin-left: 400px;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="parent">
+        <div id="left"> </div>
+        <div id="center"> </div>
+        <div id="right"></div>
+    </div>
+
+
+
+
+</body>
+
+
+
+
+
+</html>
