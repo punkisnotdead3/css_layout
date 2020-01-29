@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- 
+
+这种解决方案  比较复杂， 仅仅是为了seo 友好。
+
+但是这个解决方案比较经典，需要掌握
+
+
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>圣杯布局 SEO友好</title>
+
+
+    <style>
+        #parent {
+            height: 300px;
+            /* left和right 元素的宽度 */
+            margin-left: 300px;
+            margin-right: 300px;
+        }
+
+        #left,
+        #center,
+        #right {
+            height: 300px;
+            float: left;
+        }
+
+        #center {
+            /* 父级元素宽度的百分之100 */
+            width: 100%;
+            background: rebeccapurple;
+
+        }
+
+        #left {
+            width: 300px;
+            background: red;
+            /*  step 1:  左移 一个父级宽度以后 就可以和center 在同一行了，并且还是在center的左边 */
+            margin-left: -100%;
+
+            /* 不脱离文档流     
+            step2: 这样就在center的左边 而且也是顶在parent的最左边
+
+            再次移动到理想位置
+            
+            */
+            position: relative;
+            left: -300px;
+        }
+
+        #right {
+            background: seagreen;
+            /* step 2:   也是左移， 值移动一个自己的宽度即可 然后就三个节点 都在同一行了*/
+            margin-left: -300px;
+            width: 300px;
+
+            position: relative;
+            right: -300px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 定宽+自适应+定宽  
+    
+     但是 自适应我们在最前面。  就保证了SEO
+     友好
+    
+    -->
+
+    <div style="height: 200px; background: yellow;">top</div>
+    <div id="parent">
+        <div id="center"> 自适应我应该在中间 </div>
+        <div id="left"> 左边的定宽</div>
+        <div id="right">右边的定宽</div>
+    </div>
+    <div style="height: 200px; background: yellow;">bottom</div>
+
+
+
+
+</body>
+
+
+
+
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- 
+
+
+定宽 +自适应+ 定宽    
+
+
+注意点： 如果两个节点是兄弟节点， 如果前面的节点是float ， 那么这2个兄弟节点 是可以水平排列的。
+
+但是如果  前面的节点是普通节点  后面的节点是float 节点，那么这2个节点就只能垂直排列了。
+
+解决思路：
+
+先将 定宽+自适应  看做一个简单的两列布局。 左边的节点就是float  右边的自适应节点 设置一下margin 即可。
+
+第二部  将自适应+定宽 也看做一个简单的两列布局， 右边的节点就是float  自适应节点再设置一下 margin
+
+        注意此时 因为右边的定宽节点 是在最右边 所以 此时最右边的节点就和前面的节点 不在一行了、
+
+第三部   为了解决第二部的问题 ，我们将最右边的right 节点 放到 中间自适应节点的前面即可。
+
+
+缺点： 通常来说，搜索引擎会先抓取前面的节点，所以这个自适应节点center 对seo 来说就是不友好的，因为他在最后面。
+
+
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>三列布局的补充</title>
+
+
+    <style>
+        #left,
+        #center,
+        #right {
+            height: 300px;
+        }
+
+        #center {
+            background: rebeccapurple;
+            margin-left: 300px;
+            margin-right: 300px;
+        }
+
+        #left {
+            width: 300px;
+            background: red;
+            float: left;
+        }
+
+        #right {
+            background: seagreen;
+            width: 300px;
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 实现了一种 更加复杂的三列布局 -->
+        <div id="left"> </div>
+        <div id="right"></div>
+        <div id="center"> </div>
+
+
+
+
+</body>
+
+
+
+
+
+</html>
