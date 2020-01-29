@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- 
+
+ 
+
+
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>等高布局的第一种方法</title>
+
+
+    <style>
+        #parent {
+            /* 表格中的单元格 默认是等高的 */
+            display: table;
+        }
+
+        #left {
+            background: red;
+        }
+
+        #right {
+            background: green;
+        }
+
+        #left,
+        #right {
+            width: 300px;
+            display: table-cell;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="parent">
+
+        <div id="left">极客时间</div>
+        <div id="right">知乎掘进12121212121212121212121212121212121212121</div>
+    </div>
+
+
+</body>
+
+
+
+
+
+</html>

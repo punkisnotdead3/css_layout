@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- 
+
+ 
+这种方案 是 视觉上的等高效果
+
+而不是真正的等高布局。
+
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>等高布局的第2种方法</title>
+
+
+    <style>
+        #parent {
+            /* 如果子元素 超出父元素了 那么就隐藏超出的部分 */
+           overflow: hidden;
+        }
+
+        #left {
+            background: red;
+        }
+
+        #right {
+            background: green;
+        }
+
+        #left,
+        #right {
+            width: 300px;
+            float:left;
+            /* 这里是常用的对冲手段 */
+            padding-bottom: 99999px;
+            margin-bottom: -99999px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="parent">
+
+        <div id="left">极客时间</div>
+        <div id="right">知乎掘进12121212121212212121212121212121</div>
+    </div>
+
+
+</body>
+
+
+
+
+
+</html>
