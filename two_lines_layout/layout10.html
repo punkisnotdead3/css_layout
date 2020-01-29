@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- 
+
+    在原有html 代码的基础上 外面 再包一个父级容器 即可
+
+
+
+
+
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>等分布局的第一种实现方式 改进版</title>
+
+
+    <style>
+        #parent-fix {
+            /* step last: 解决 子元素 比父元素 宽度还要长的问题 */
+            overflow: hidden;
+        }
+
+        #parent {
+            height: 300px;
+            /* step5: 向左移动10px  就可以把多出来的10个px 移走 */
+            margin-left: -10px;
+        }
+
+        .col1,
+        .col2,
+        .col3,
+        .col4 {
+
+            float: left;
+
+            height: 300px;
+
+            width: 25%;
+
+            /* step2: 设置完这个以后 你应该可以想到 相比于父元素的宽度 会多出来一个10px距离，所以最后一个col 是放不下的，只能去下一行 */
+            padding-left: 10px;
+            /* step3: 默认是content模型， 如果设置为border 模型 那么就不会出现 超出父元素宽度的情况 但是
+             这样也就看不出来 间距了
+             */
+            box-sizing: border-box;
+
+        }
+
+        /* step4 增加子元素的inner节点  做完这一步 可以看看效果  虽然不完美 但是间距都能展示出来了 只是最左边的元素 多了一个间距 
+           要想办法 把这个间距去掉
+         */
+        .inner {
+            height: 300px;
+        }
+
+        .col1 .inner {
+            background-color: teal;
+        }
+
+        .col2 .inner {
+            background-color: tomato;
+        }
+
+        .col3 .inner {
+            background-color: rebeccapurple;
+        }
+
+        .col4 .inner {
+            background-color: royalblue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- step1 :  外面 先包一层div-->
+    <div id="parent-fix">
+        <div id="parent">
+            <div class="col1">
+                <div class="inner"></div>
+            </div>
+            <div class="col2">
+                <div class="inner"></div>
+            </div>
+            <div class="col3">
+                <div class="inner"></div>
+            </div>
+            <div class="col4">
+                <div class="inner"></div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+</body>
+
+
+
+
+
+</html>

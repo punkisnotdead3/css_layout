@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- 
+
+ 解决问题的核心思路：
+  实际开发中 等分布局 的最外层布局 的宽度 通常是死的
+
+  所以 保证 parent - 间距 = parent -fix的 宽度即可 
+
+  这种等分的写法 相比于第一种 更加简单一些。
+
+
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>等分布局的第2种实现方式 改进版</title>
+
+
+    <style>
+        #parent-fix {
+            background: red;
+            width: 1014px;
+        }
+
+        #parent {
+            width: 1024px;
+            display: table;
+            margin-left: -10px;
+        }
+
+
+        .col1,
+        .col2,
+        .col3,
+        .col4 {
+            height: 300px;
+            display: table-cell;
+            padding-left: 10px;
+            box-sizing: border-box;
+        }
+
+        .inner {
+            height: 300px;
+        }
+
+        .col1 .inner {
+            background-color: teal;
+        }
+
+        .col2 .inner {
+            background-color: tomato;
+        }
+
+        .col3 .inner {
+            background-color: rebeccapurple;
+        }
+
+        .col4 .inner {
+            background-color: royalblue;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- step1 :  外面 先包一层div-->
+    <div id="parent-fix">
+        <div id="parent">
+            <div class="col1">
+                <div class="inner"></div>
+            </div>
+            <div class="col2">
+                <div class="inner"></div>
+            </div>
+            <div class="col3">
+                <div class="inner"></div>
+            </div>
+            <div class="col4">
+                <div class="inner"></div>
+            </div>
+
+        </div>
+    </div>
+
+
+</body>
+
+
+
+
+
+</html>
