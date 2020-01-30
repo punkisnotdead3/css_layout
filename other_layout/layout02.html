@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- 
+
+column-gap 用于设置 列与列之间的间距 为多列显示时的元素设置
+
+normal 用于表示使用浏览器定义列的默认间距 默认值为1em
+
+length 必须是 正整数 定义列之间的间距
+
+
+column-rule 用于定义列与列之间的边框 宽度，颜色，样式 等
+
+column-span 定义一个元素 是否跨列
+    none 不跨列
+    all 跨所有列
+     就这2中 没其他的
+
+
+column-fill 定义列的高度是由内容决定 还是统一高度
+      auto 高度由内容决定
+
+      balance 等高布局的效果
+
+
+
+
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css3 的多列布局 （二）</title>
+
+
+    <style>
+        #parent,
+        #parent2 {
+            column-count: 4;
+            column-gap: 100px;
+
+            column-rule-width: 15px;
+            column-rule-color: tomato;
+            /* 不设置style 是不会展示的 */
+            column-rule-style: dashed;
+
+        }
+
+        .col1,
+        .col6,
+        .col27,
+        .col8,
+        .col2,
+        .col3,
+        .col4,
+        .col5 {
+            height: 300px;
+        }
+
+
+        .col1,
+        .col6 {
+            background: red;
+        }
+
+        .col2,
+        .col7 {
+            background: green;
+        }
+
+        .col3,
+        .col8 {
+            background: yellow;
+        }
+
+        .col4,
+        .col9 {
+            background: rebeccapurple;
+        }
+
+        .col5 {
+            background-color: teal;
+            column-span: all;
+        }
+
+        .col6,
+        .col7,
+        .col8,
+        .col9 {
+            /* 这个属性在chrome 中 兼容的不好 */
+            column-fill: balance;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 自动的间隙的效果 -->
+    <div id="parent">
+        <div class="col1"></div>
+        <div class="col2"></div>
+        <div class="col3"></div>
+        <div class="col4"></div>
+        <div class="col5"></div>
+    </div>
+    <br><br>
+    <div id="parent2">
+
+        <div class="col5"></div>
+    </div>
+
+
+    <br><br>
+    <div id="parent">
+
+        <div class="col6">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat rem quo aliquid distinctio
+            debitis provident temporibus tempora blanditiis asperiores deserunt. Consequuntur sed amet harum velit.
+            Aliquid incidunt laudantium hic a.</div>
+        <div class="col7">1</div>
+        <div class="col8">2222222</div>
+        <div class="col9">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit non eaque voluptatibus fuga
+            maiores porro quidem deleniti in eos deserunt! Molestiae laborum impedit necessitatibus ullam inventore
+            voluptate aperiam! Animi, harum
+
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus atque nobis praesentium magnam dolore,
+            porro alias enim ad eos debitis laborum est voluptates autem culpa blanditiis at, corporis, labore odit?.
+        </div>
+    </div>
+
+</body>
+
+
+
+
+
+</html>

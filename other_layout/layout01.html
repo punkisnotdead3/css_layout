@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- 
+
+  这里要对css3的 多列布局 相关的api 做一个统一的介绍
+
+ column-count:定义列的数量
+        auto： 默认值， 列的数量由其他css 属性决定
+        正整数： 定义列的数量
+
+
+ column-width:定义列的宽度
+        auto 默认值 表示 列的宽度 由css 决定
+        length: 必须是正整数 用于表示定义列的宽度
+    
+
+
+
+css3 实现多列布局 比老的方案 要容易的多
+
+
+
+
+
+
+
+
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css3 的多列布局 （一）</title>
+
+
+    <style>
+        #parent {
+            column-count: 4;
+            /* column-width: 200px; */
+            /* 当然也可以用简写方式来完成    
+            columns: 4 auto; */
+        }
+
+        .col1,
+        .col2,
+        .col3,
+        .col4 {
+            height: 300px;
+        }
+
+
+        .col1 {
+            background: red;
+        }
+
+        .col2 {
+            background: green;
+        }
+
+        .col3 {
+            background: yellow;
+        }
+
+        .col4 {
+            background: rebeccapurple;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 自动的间隙的效果 -->
+    <div id="parent">
+        <div class="col1"></div>
+        <div class="col2"></div>
+        <div class="col3"></div>
+        <div class="col4"></div>
+    </div>
+
+</body>
+
+
+
+
+
+</html>

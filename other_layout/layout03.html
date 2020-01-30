@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- 
+
+<header>和<footer> 都是html5 的新增的标签
+
+
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>全屏布局</title>
+
+
+    <style>
+        /* 默认有body 有8个像素的外边距 所以这里我们先把他改成0 */
+        html,
+        body {
+            margin: 0;
+        }
+
+        /* header 也是块级元素，所有块级元素的宽度 默认都是父级元素的100%
+        
+             */
+        header {
+            height: 100px;
+            /* 绝对定位 相对于浏览器窗口进行定位 */
+            background-color: tomato;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+
+        footer {
+            height: 100px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: turquoise;
+
+        }
+
+        .content {
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 100px;
+            bottom: 100px;
+            background-color: violet;
+
+            /* 如果 right 超出了 就提供滚动条   实际开发中 可能会碰到这种情况 */
+            overflow: auto;
+        }
+
+        .content .left {
+            width: 300px;
+            height: 100%;
+
+            position: fixed;
+            left: 0;
+            top: 100px;
+            bottom: 100px;
+
+            background-color: green;
+        }
+
+        .content .right {
+            margin-left: 300px;
+            background-color: lightskyblue;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <header></header>
+    <div class="content">
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+    <footer></footer>
+</body>
+
+
+
+
+
+</html>
